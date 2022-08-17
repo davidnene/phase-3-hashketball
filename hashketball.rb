@@ -1,4 +1,5 @@
 # Write your code below game_hash
+require "pry"
 def game_hash
   {
     home: {
@@ -127,3 +128,33 @@ def game_hash
 end
 
 # Write code here
+name = "Ben Gordon"
+def num_points_scored(name)
+  points = []
+  game_hash.each do |location, details|
+    details[:players].filter do |player|
+      if player[:player_name] == "#{name}"
+         points << player[:points]
+      end
+    end
+  end
+  points.join("").to_i
+end
+
+num_points_scored(name)
+
+
+def shoe_size(name)
+  shoe = []
+  game_hash.each do |location, details|
+    details[:players].filter do |player|
+      if player[:player_name] == "#{name}"
+         shoe << player[:shoe]
+      end
+    end
+  end
+  shoe.join("").to_i
+end
+
+shoe_size(name)
+
